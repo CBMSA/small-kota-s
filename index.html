@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Small Kota's - Fast Food Restaurant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #fff8f0;
+      color: #333;
+    }
+    header {
+      background-color: #ff5722;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1604908177520-5f42919f6d0f') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 1px 1px 5px black;
+      font-size: 2em;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      color: #ff5722;
+      margin-bottom: 20px;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .menu-item {
+      background: #fff3e0;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #ff5722;
+      color: white;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #ff7043;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 10px;
+      cursor: pointer;
+      border: none;
+      font-size: 1em;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    #receipt {
+      margin-top: 20px;
+      padding: 15px;
+      background: #fff3e0;
+      border-radius: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Small Kota's</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#order">Order</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    Delicious Fast Food, Fresh & Hot!
+  </section>
+
+  <section id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <h3>Kota Special</h3>
+        <p>Delicious sandwich with sausage, fries, and sauce.</p>
+        <span>R40</span>
+      </div>
+      <div class="menu-item">
+        <h3>Cheese Kota</h3>
+        <p>Filled with cheese, sauce, and crispy fries.</p>
+        <span>R35</span>
+      </div>
+      <div class="menu-item">
+        <h3>Chicken Kota</h3>
+        <p>Grilled chicken, veggies, and sauces inside the bread.</p>
+        <span>R45</span>
+      </div>
+      <div class="menu-item">
+        <h3>Veggie Kota</h3>
+        <p>Fresh vegetables with sauces in a soft bread.</p>
+        <span>R30</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="order">
+    <h2>Order Now via WhatsApp</h2>
+    <form id="orderForm" style="max-width:500px; margin:auto; text-align:left;">
+      <label>Name:</label>
+      <input type="text" id="customerName" required>
+
+      <label>Choose Your Kota:</label>
+      <select id="kotaItem" required>
+        <option value="" disabled selected>Select a Kota</option>
+        <option value="Kota Special - R40">Kota Special - R40</option>
+        <option value="Cheese Kota - R35">Cheese Kota - R35</option>
+        <option value="Chicken Kota - R45">Chicken Kota - R45</option>
+        <option value="Veggie Kota - R30">Veggie Kota - R30</option>
+      </select>
+
+      <label>Quantity:</label>
+      <input type="number" id="quantity" min="1" value="1" required>
+
+      <button type="submit" class="btn">Generate Order & WhatsApp</button>
+    </form>
+
+    <div id="receipt">
+      <h3>Order Receipt</h3>
+      <p id="receiptContent"></p>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p style="text-align:center; max-width:700px; margin:auto;">
+      Small Kota's is your go-to spot for fresh, tasty, and affordable fast food. We believe in making every bite delicious and satisfying. Come visit us for the ultimate Kota experience!
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align:center;">
+      Phone: <strong>+27 123 456 789</strong><br>
+      Email: <strong>info@smallkotas.co.za</strong><br>
+      Location: <strong>123 Fast Food Street, Johannesburg</strong>
+    </p>
+    <div style="text-align:center;">
+      <a href="tel:+27123456789" class="btn">Call Now</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Small Kota's. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('customerName').value;
+      const item = document.getElementById('kotaItem').value;
+      const quantity = parseInt(document.getElementById('quantity').value);
+
+      // Generate order number
+      const orderNumber = 'SK' + Math.floor(Math.random() * 100000);
+
+      // Extract price from selected item
+      const priceMatch = item.match(/R(\d+)/);
+      const price = priceMatch ? parseInt(priceMatch[1]) : 0;
+      const total = price * quantity;
+
+      // Prepare receipt
+      const receiptText = `
+        Order Number: ${orderNumber}<br>
+        Name: ${name}<br>
+        Item: ${item}<br>
+        Quantity: ${quantity}<br>
+        Total: R${total}
+      `;
+      document.getElementById('receiptContent').innerHTML = receiptText;
+      document.getElementById('receipt').style.display = 'block';
+
+      // WhatsApp order message
+      const whatsappNumber = '+27123456789'; // Replace with your restaurant WhatsApp
+      const message = `Hello! I would like to place an order:%0AOrder Number: ${orderNumber}%0AName: ${name}%0AItem: ${item}%0AQuantity: ${quantity}%0ATotal: R${total}`;
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+      // Open WhatsApp
+      window.open(whatsappURL, '_blank');
+    });
+  </script>
+
+</body>
+</html>
